@@ -22,10 +22,10 @@ empty($var)
 (bool)$var
 
 */
-$lista = array('$var = null;', '$var = 0;', '$var = true;', '$var = false;', '$var = 0;', '$var = "";', '$var  = "foo";', '$var = array();','unset($var);');
+$lista = array('$var = null;', '$var = 0;', '$var = true;', '$var = false;', '$var = 0;', '$var = "";', '$var  = "foo";', '$var = array();');
 echo "<table>";
-echo "<tr><td>Contenido de \$var </td></tr>";
-
+echo "<tr><td>Contenido de \$var </td><td>isset(\$var)</td><td>empty(\$var)</td><td>(bool)\$var</td></tr>";
+//,'unset($var);'
 
 
 $listaVar = array( $var = null, $var = 0,  $var = true, $var = false, $var = "0", $var = "", $var  = "foo", $var = array());
@@ -95,11 +95,28 @@ for ($i=0; $i < count($lista); $i++) {
 		echo "<td>".$j."</td>";
 		
 	}*/
-	echo "<td>".miIsset($listVar[$i])."</td>";
+	/*
+	echo "<td>".miIsset($listaVar[$i])."</td>";
 	echo "<td>".miEmpty($listaVar[$i])."</td>";
 	echo "<td>".varBool($listaVar[$i])."</td>";
+	*/
+
+	$miIsset = (miIsset($listaVar[$i]) == 1) ? "true" : "false";
+	$miEmpty = (miEmpty($listaVar[$i]) == 1) ? "true" : "false";
+	$varBool = (varBool($listaVar[$i]) == 1) ? "true" : "false";
+
+	echo "<td>".$miIsset."</td>";
+	echo "<td>".$miEmpty."</td>";
+	echo "<td>".$varBool." </td>";
 
 
+	/*
+
+	echo "<td> a </td>";
+	echo "<td> b </td>";
+	echo "<td> c </td>";
+
+	*/
 
 
 
